@@ -1,0 +1,118 @@
+#NumPy is a fundamental package for scientific computing
+# in Python. It provides support for large multi-dimensional
+# arrays and matrices, along with a collection of mathematical
+# functions to operate on these arrays efficiently.
+import numpy as np
+
+print("**Q1. Questions on Basic NumPy Array**")
+
+# (a) Reverse the NumPy array
+arr = np.array([1, 2, 3, 6, 4, 5])
+print(arr)
+print(np.flip(arr))
+
+# (b) Flatten the NumPy array
+array1 = np.array([[1, 2, 3], [2, 4, 5], [1, 2, 3]])
+print("Flatten Array By Default", array1.flatten())  # By default it is 'C'
+print("Flatten Array By Value F", array1.flatten('F'))
+#'F' means to flatten in column-major (Fortran- style) order.
+print("Flatten Array By Reshape Function", array1.reshape(-1))
+#When you pass -1 as the argument to reshape, it tells NumPy to
+# flatten the array into a one-dimensional array
+# (c) Compare the following numpy arrays
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[1, 2], [3, 4]])
+print(np.array_equal(arr1, arr2))
+
+# (d) Find the most frequent value and their indices in the following arrays
+x = np.array([1, 2, 3, 4, 5, 1, 2, 1, 1, 1])
+y = np.array([1, 1, 1, 2, 3, 4, 2, 4, 3, 3])
+x1 = np.bincount(x).argmax()
+y1 = np.bincount(y).argmax()
+print("Most frequent value in Array X is", x1)
+print("With Indices:")
+for i in range(len(x)):
+    if x[i] == x1:
+        print(i)
+print("Most frequent value in Array Y is", y1)
+print("With Indices:")
+for i in range(len(y)):
+    if y[i] == y1:
+        print(i)
+
+# (e) For the array gfg
+gfg = np.matrix('[4, 1, 9; 12, 3, 1; 4, 5, 6]')
+print("Sum of all elements:", np.sum(gfg))
+print("Sum of all elements row-wise:", np.sum(gfg, axis=1))
+print("Sum of all elements column-wise:", np.sum(gfg, axis=0))
+
+# (f) For the matrix
+n_array = np.array([[55, 25, 15], [30, 44, 2], [11, 45, 77]])
+print("Sum of diagonal elements:", np.trace(n_array))
+#NumPy Linear Algebra Module
+eigenvalues, eigenvectors = np.linalg.eig(n_array)
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:", eigenvectors)
+print("Inverse of a matrix:", np.linalg.inv(n_array))
+print("Determinant of matrix:", np.linalg.det(n_array))
+
+# (g) Multiply the following matrices and also find covariance between matrices using NumPy
+p = np.array([[1, 2], [2, 3]])
+q = np.array([[4, 5], [6, 7]])
+print("Multiplication:")
+print(np.multiply(p, q))
+print("Covariance:")
+print(np.cov(p, q))
+
+# p = np.array([[1, 2], [2, 3], [4, 5]])
+# q = np.array([[4, 5, 1], [6, 7, 2]])
+# print("Multiplication:")
+# print(np.multiply(p, q.T))
+# print("Covariance:")
+# print(np.cov(p, q))
+
+# (h) For the matrices
+x = np.array([[2, 3, 4], [3, 2, 9]])
+y = np.array([[1, 5, 0], [5, 10, 3]])
+print("Inner product of x and y:", np.inner(x, y))
+print("Outer product of x and y:", np.outer(x, y))
+
+print("**Q2: Based on NumPy Mathematics and Statistics**")
+
+# (a) For the array
+array = np.array([[1, -2, 3], [-4, 5, -6]])
+print(np.abs(array))
+
+column_percentiles = np.percentile(array, q=[25, 50, 75], axis=0)
+print("Column Percentiles:")
+print(column_percentiles)
+
+row_percentiles = np.percentile(array, q=[25, 50, 75], axis=1)
+print("Row Percentiles:")
+print(row_percentiles)
+
+flattened_array = array.flatten()
+print("Mean of flattened array:", np.mean(flattened_array))
+print("Median of flattened array:", np.median(flattened_array))
+print("Standard Deviation of flattened array:", np.std(flattened_array))
+
+print("Mean of each column:", np.mean(array, axis=0))
+print("Median of each column:", np.median(array, axis=0))
+print("Standard Deviation of each column:", np.std(array, axis=0))
+
+print("Mean of each row:", np.mean(array, axis=1))
+print("Median of each row:", np.median(array, axis=1))
+print("Standard Deviation of each row:", np.std(array, axis=1))
+
+# (b) For the array
+a = np.array([-1.8, -1.6, -0.5, 0.5, 1.6, 1.8, 3.0])
+print("Floor values:", np.floor(a))
+print("Ceiling values:", np.ceil(a))
+print("Truncated values:", np.trunc(a))
+print("Rounded values:", np.round(a))
+
+print("**Q3: Based on Searching and Sorting**")
+
+# (a) For the array
+array = np.array([10, 52, 62, 16, 16, 54, 453])
+print(np.sort(array))
